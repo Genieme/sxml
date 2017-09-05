@@ -1,0 +1,42 @@
+
+
+// Function Model : 
+
+// att-value { equal : char, squote : char, value : String, equote : char }
+
+// prefix-value { prefix : Name, colon : char } 
+// it applies to element or attribute qname
+
+// attribute-html = att-name | (att-name + att-value) | (prefix-value + att-name) | (prefix-value + att-name + att-value )
+
+// attribute-xml = (att-name + att-value) | (prefix-value + att-name + att-value )
+
+// element-html-xml = ele-name | (prefix-value + ele-name)
+
+// start-ele-value = { less: char, elem: Elem, att: Att, more: char } 
+// <elem att>
+
+// ele-value = { less: char, elem: Elem, att: Att, selfClose: SelfClose } 
+// <elem att:> 
+
+// ele-value = { less: char, elem: Elem, att: Att, selfClose: SelfClose }
+// <elem att :>
+
+// self-close = { space: char, colon: char, more: char } 
+// self-close = { colon: char, more: char }
+// ' :>' or ':>' Note: should we save space ':>' vs ' :>'
+
+// end-ele-value = { less : char, more: char } 
+// '<>'
+
+// Att = attribute-xml | attribute-html
+// Elem = element-html-xml
+// Node = ele-node | txt-node | mix-node 
+// mix-node = alternating ele-node and txt-node
+
+// ele-node = ele-value | (start-ele-value + end-ele-value) 
+// '<elem att:>' or '<elem att><>'
+
+// ele-node-tree = start-ele-value + Node + end-ele-value 
+// 1 element containing one or many nodes
+
