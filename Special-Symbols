@@ -1,0 +1,18 @@
+
+
+// Special Characters or Symbols : 
+
+// mapping of symbol to escape equivalent for Read or Write
+// mapping of escape to symbol equivalent for Write or Read 
+// Or mapping of the name to a pair of symbol and escape 
+// map or struct { name : (symbol, escape) } 
+// hence, name.0 to replace name.1 ; vice versa. 
+
+// The Set of Symbols and Escapes : (char, String)
+// equal: ('=', "&eq;"), colon: (':', "&col;), amper: ('&', "&amp;"), 
+// quote: ('"', "&quot;"), more: ('>', "&gt;"), less: ('<', "&lt;")
+
+// Substitution Model : 
+// match name { symbol => escape } etc. 
+// match symbol { '<' => "&lt;", '"' => "&quot;", etc.} 
+
