@@ -1,0 +1,33 @@
+
+
+// Type Model :
+
+// ele-name { qname : Qname | name : NQname }
+
+// att-name { qname : Qname | name : NQname }
+
+// Qname { prefix : NSName & local : Name } 
+// Name = xml Identifier or xml token 
+
+// NQName { local : Name } 
+// where prefix is none 
+// NQName = non-qualified-name
+
+// NSName { prefix : map<Name, _> & uri : map<_, Uri> } 
+// where getprefix(NSName)->Name;, ignoring Uri
+// and geturi(NSName)->Uri;, ignoring Name
+// type NSName = BtreeMap<Name, Uri>
+
+// Assert that NSName => Qname; 
+// by checking for prefix and uri pair in same dom context.
+// search for xmlns => prefix @ uri
+// Issue error for prefix @ no uri.
+// Generate the qname instance from : fn getqname(NSName) -> Qname;
+
+// Predefined NSName : 
+// (xml, https://www.w3.org/1999/xml)
+// (xmlns, ...)
+// (xhtml, ...)
+// (mathml, ...) 
+// (svg, ...) 
+
