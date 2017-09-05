@@ -1,0 +1,29 @@
+
+
+// Substitution Model : 
+// match name { symbol => escape } etc. 
+// match symbol { '<' => "&lt;", '"' => "&quot;", etc.} 
+
+
+// Transformation Model : 
+
+// For XML Declaration : <xml version="f32" encoding="Encoding">
+// xml 1 series into xml 2 series declarations.
+// transform "<?" into '<' and "?>" into '>' for xml decl.
+// version = 2.0, encoding = ucs1?|ucs2|ucs4|utf8|utf16|utf32|utf16be|utf16le|ucc?|etc
+// ucc = universal character codes => a map of codepoints, e.g (codeunits, char-names)
+// impl-details : 8-bit codepoints 00-FF; 16-bit 0000-FFFF; 32-bit 00000000-FFFFFFFF
+// 00 = 0000 = 00000000; FF = 00FF = 000000FF; value range.
+// code-unit :cu2: [u8; 2], cu4: [u16; 4], cu8: [u32; 8] ; 
+// type CU = cu2 | cu4 | cu8;  
+// 2-digit, 4-digit, 8-digit code-units
+
+// For xml-stylesheet : <?xml-stylesheet .... ?> 
+// transform "<?xml-stylesheet .. ?>" into "<link rel="stylesheet" type="MIME" src="URI":>"
+
+// For xml Comment : <!-- string --> 
+// transform "<!-- string -->" into "<comment type="Type">string<>
+
+// For xml Processing Instructions : <pi:>
+// New construct : "<processing type="Type" rel="Rel" name="Qname" for="ID" src="URI":>
+
